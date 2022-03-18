@@ -38,7 +38,7 @@ export const QrScanner = () => {
             {
                 qrcodeView
                     ? <QrReader
-                        constraints={{facingMode: 'user'}}
+                        constraints={{facingMode: 'environment'}}
                         onResult={(result, error) => {
                             if (!!result) {
                                 // @ts-ignore
@@ -47,6 +47,7 @@ export const QrScanner = () => {
                             }
                             if (!!error) {
                                 console.info(error);
+                                // setQrCodeView(false)
                             }
                         }}
                         containerStyle={{width: '100%'}}
