@@ -1,0 +1,37 @@
+.scannerBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scannerTitle {
+    margin: 100px 0px 30px;
+    color: midnightblue;
+}
+
+.cameraBlock {
+    width: 200px;
+    height: 200px;
+    background-color: darkgray;
+    border: 2px solid midnightblue;
+}
+
+.textareaBlock {
+    width: 200px;
+    height: 60px;
+    margin: 30px 0px;
+    padding: 5px;
+    border: 2px solid midnightblue;
+}
+
+.qrcodeText {
+    display: inline-block;
+    margin: 20px;
+}
+
+.errorText {
+    color: red;
+    display: inline-block;
+    margin: 20px;
+}
