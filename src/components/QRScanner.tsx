@@ -7,12 +7,17 @@ import {QrReader} from "react-qr-reader";
 export const QrScanner = () => {
     const [qrcodeView, setQrCodeView] = useState(false)
     const [data, setData] = useState('');
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(false);  // показывает ошибку при попытке отсканировать не qr-code
 
+    //включаем камеру для сканирования
     const onPressScanQR = () => {
         setQrCodeView(true)
     }
 
+    //1-скачиваем результат в виду файла .txt
+    //2-после скачивания выключается режим сканирования
+    //3-зачищаем строку результата
+    //4-Либо высвечивается ошибка
     const onPressDownloadFile = () => {
         if (data !== '') {
             setError(false)
@@ -30,7 +35,6 @@ export const QrScanner = () => {
             setError(true)
         }
     }
-
 
     return (
         <div className={s.scannerBlock}>
