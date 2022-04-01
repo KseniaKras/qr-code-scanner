@@ -15,6 +15,7 @@ export const QrScannerContainer: React.FC<QrScannerContainerPropsType> = ({addTo
 
     //включаем камеру для сканирования
     const onPressScanQR = () => {
+        setData('')
         setQRCodeView(true)
     }
 
