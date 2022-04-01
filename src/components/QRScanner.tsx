@@ -41,7 +41,7 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
                                 if (!!result) {
                                     setData(result?.getText());
                                     addToItemsList(result?.getText())
-                                    //setQRCodeView(false)
+                                    setQRCodeView(false)
                                 }
                                 if (!!error) {
                                     console.info(error);

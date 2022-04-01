@@ -4,9 +4,9 @@
     display: inline-block;
     background-color: rgb(6, 121, 236);;
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
-    border: 2px solid midnightblue;
+    border: 1px solid white;
     border-radius: 20px;
 
     /*margin-top: 50px;*/
