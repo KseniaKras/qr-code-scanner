@@ -30,7 +30,6 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
 
     return (
         <div className={s.scannerBlock}>
-            {/*<h2 className={s.scannerTitle}>QR-code scanner</h2>*/}
             {
                 qrCodeView
                     && <>
@@ -58,7 +57,6 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
                             scanDelay={500}
                         />
                     </>
-                    // : ''   // <div className={s.cameraBlock}/>
             }
 
             {

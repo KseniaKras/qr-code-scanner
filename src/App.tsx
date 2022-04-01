@@ -1,11 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {QrScannerContainer} from "./components/QRScannerContainer";
 import ResultsList from "./components/ResultsList";
 import {Button} from "./components/common/Button";
 
-
-// export const resultsArray: string[] = []
 
 function App() {
 
@@ -13,7 +11,6 @@ function App() {
     const [resultsArray, setResultsArray] = useState<string[]>([])
 
     let addToItemsList = (value: string) => {
-        // resultsArray.push(value)
         setResultsArray([...resultsArray, value])
     }
 
@@ -31,7 +28,7 @@ function App() {
                         : <QrScannerContainer addToItemsList={addToItemsList}/>
                 }
                 <Button
-                    name={isShowingList ? 'Back' : 'Watch all results'}
+                    name={isShowingList ? 'Back' : 'See results'}
                     onPressHandler={onPressShowResults}
                 />
             </div>
