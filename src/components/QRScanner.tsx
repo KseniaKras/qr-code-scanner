@@ -1,76 +1,68 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './QRScanner.module.css'
 import {Button} from "./common/Button";
 import {QrReader} from "react-qr-reader";
 
 
-export const QrScanner = () => {
-    const [qrcodeView, setQrCodeView] = useState(false)
-    const [data, setData] = useState('');
-    const [error, setError] = useState(false);  // показывает ошибку при попытке отсканировать не qr-code
+type ScannerPropsType = {
+    qrCodeView: boolean
+    error: boolean
+    data: string
+    setData: (result: string) => void
+    setQRCodeView: (value: boolean) => void
+    downloadFile: () => void
+    scanQRCode: () => void
+    backToMainPage: () => void
+}
 
-    //включаем камеру для сканирования
-    const onPressScanQR = () => {
-        setQrCodeView(true)
-    }
-
-    //1-скачиваем результат в виду файла .txt
-    //2-после скачивания выключается режим сканирования
-    //3-зачищаем строку результата
-    //4-Либо высвечивается ошибка
-    const onPressDownloadFile = () => {
-        if (data !== '') {
-            setError(false)
-            const element = document.createElement('a')
-            const file = new Blob([data], {
-                type: 'text/plain'
-            })
-            element.href = URL.createObjectURL(file)
-            element.download = 'qr-code.txt';
-            document.body.appendChild(element);
-            element.click()
-            setQrCodeView(false)
-            setData('')
-        } else {
-            setError(true)
-        }
-    }
+export const QrScanner: React.FC<ScannerPropsType> = ({
+                                                          qrCodeView,
+                                                          error,
+                                                          data,
+                                                          setData,
+                                                          setQRCodeView,
+                                                          downloadFile,
+                                                          scanQRCode,
+                                                          backToMainPage,
+                                                      }) => {
 
     return (
         <div className={s.scannerBlock}>
-            <h1 className={s.scannerTitle}>QR-code scanner</h1>
+            <h2 className={s.scannerTitle}>QR-code scanner</h2>
             {
-                qrcodeView
-                    ? <QrReader
-                        constraints={{facingMode: 'environment'}}
-                        onResult={(result, error) => {
-                            if (!!result) {
-                                // @ts-ignore
-                                setData(result?.text);
-                                setQrCodeView(false)
-                            }
-                            if (!!error) {
-                                console.info(error);
-                                // setQrCodeView(false)
-                            }
-                        }}
-                        containerStyle={{width: '100%'}}
-                        scanDelay={500}
-                    />
+                qrCodeView
+                    ? <>
+                        <Button name={'back'} onPressHandler={backToMainPage}/>
+                        <QrReader
+                            constraints={{facingMode: 'environment'}}
+                            onResult={(result, error) => {
+                                if (!!result) {
+                                    setData(result?.getText());
+                                    setQRCodeView(false)
+                                }
+                                if (!!error) {
+                                    console.info(error);
+                                    // setQrCodeView(false)
+                                }
+                            }}
+                            containerStyle={{width: '100%'}}
+                            scanDelay={500}
+                        />
+                    </>
                     : <div className={s.cameraBlock}/>
             }
 
             {
                 !error
-                    ? <span className={s.qrcodeText} onClick={onPressDownloadFile}>{data}</span>
+                    ? <span className={s.qrcodeText} onClick={downloadFile}>{data}</span>
                     : <span className={s.errorText}>Need to scan QR-code</span>
             }
 
 
             {
-                !qrcodeView
-                    ? <Button name={'Scan QR-code'} onPressHandler={onPressScanQR}/>
-                    : <Button name={'Download txt'} onPressHandler={onPressDownloadFile}/>
+                !qrCodeView
+                    ? <Button name={'Scan QR-code'} onPressHandler={scanQRCode}/>
+                    : <Button name={'Download txt'} onPressHandler={downloadFile}/>
             }
         </div>
     );

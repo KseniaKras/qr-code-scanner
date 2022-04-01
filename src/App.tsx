@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {QrScanner} from "./components/QRScanner";
+import {QrScannerContainer} from "./components/QRScannerContainer";
 
 
 function App() {
 
   return (
     <div className="App">
-        <QrScanner />
+        <QrScannerContainer />
     </div>
   );
 }
