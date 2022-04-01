@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {QrScanner} from "./QRScanner";
+import {Button} from "./common/Button";
 
 
 type QrScannerContainerPropsType = {
@@ -47,6 +48,8 @@ export const QrScannerContainer: React.FC<QrScannerContainerPropsType> = ({addTo
 
     return (
         <>
+            {/*{data && <span>{data}</span>}*/}
+            {data && <Button name={'Download txt'} onPressHandler={onPressDownloadFile}/>}
             <QrScanner
                 qrCodeView={qrCodeView}
                 error={error}
