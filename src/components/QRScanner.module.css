@@ -3,20 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
+    margin-bottom: 30px;
 }
 
-.scannerTitle {
-    margin: 30px 0px;
-    color: midnightblue;
-}
+/*.scannerTitle {*/
+/*    margin: 30px 0px;*/
+/*    color: midnightblue;*/
+/*}*/
 
-.cameraBlock {
-    width: 150px;
-    height: 150px;
-    background-color: darkgray;
-    border: 2px solid midnightblue;
-}
+/*.cameraBlock {*/
+/*    width: 150px;*/
+/*    height: 150px;*/
+/*    background-color: darkgray;*/
+/*    border: 2px solid midnightblue;*/
+/*}*/
 
 .textareaBlock {
     width: 200px;
@@ -27,6 +28,7 @@
 }
 
 .qrcodeText {
+    color: white;
     display: inline-block;
     margin: 20px;
 }
@@ -36,3 +38,9 @@
     display: inline-block;
     margin: 20px;
 }
+
+/*.viewFinder {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background-color: white;*/
+/*}*/

@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import {QrScanner} from "./QRScanner";
 
 
-export const QrScannerContainer: React.FC = ({}) => {
+type QrScannerContainerPropsType = {
+    addToItemsList: (value: string) => void
+}
+
+export const QrScannerContainer: React.FC<QrScannerContainerPropsType> = ({addToItemsList}) => {
 
     const [qrCodeView, setQRCodeView] = useState(false)
     const [data, setData] = useState('');
@@ -13,11 +17,12 @@ export const QrScannerContainer: React.FC = ({}) => {
         setQRCodeView(true)
     }
 
-    //1-скачиваем результат в виду файла .txt
-    //2-после скачивания выключается режим сканирования
-    //3-зачищаем строку результата
-    //4-Либо высвечивается ошибка
-
+    /*
+    1-скачиваем результат в виду файла .txt
+    2-после скачивания выключается режим сканирования
+    3-зачищаем строку результата
+    4-Либо высвечивается ошибка
+    */
     const onPressDownloadFile = () => {
         if (data !== '') {
             setError(false)
@@ -29,7 +34,6 @@ export const QrScannerContainer: React.FC = ({}) => {
             element.download = 'qr-code.txt';
             document.body.appendChild(element);
             element.click()
-            setQRCodeView(false)
             setData('')
         } else {
             setError(true)
@@ -40,7 +44,6 @@ export const QrScannerContainer: React.FC = ({}) => {
         setQRCodeView(false)
         setError(false)
     }
-
 
     return (
         <>
@@ -53,6 +56,7 @@ export const QrScannerContainer: React.FC = ({}) => {
                 downloadFile={onPressDownloadFile}
                 scanQRCode={onPressScanQR}
                 backToMainPage={backToMainPage}
+                addToItemsList={addToItemsList}
             />
         </>
     );

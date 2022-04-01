@@ -13,6 +13,7 @@ type ScannerPropsType = {
     downloadFile: () => void
     scanQRCode: () => void
     backToMainPage: () => void
+    addToItemsList: (value: string) => void
 }
 
 export const QrScanner: React.FC<ScannerPropsType> = ({
@@ -24,20 +25,22 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
                                                           downloadFile,
                                                           scanQRCode,
                                                           backToMainPage,
+                                                          addToItemsList,
                                                       }) => {
 
     return (
         <div className={s.scannerBlock}>
-            <h2 className={s.scannerTitle}>QR-code scanner</h2>
+            {/*<h2 className={s.scannerTitle}>QR-code scanner</h2>*/}
             {
                 qrCodeView
-                    ? <>
-                        <Button name={'back'} onPressHandler={backToMainPage}/>
+                    && <>
+                        <Button name={'Back'} onPressHandler={backToMainPage}/>
                         <QrReader
                             constraints={{facingMode: 'environment'}}
                             onResult={(result, error) => {
                                 if (!!result) {
                                     setData(result?.getText());
+                                    addToItemsList(result?.getText())
                                     setQRCodeView(false)
                                 }
                                 if (!!error) {
@@ -46,10 +49,14 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
                                 }
                             }}
                             containerStyle={{width: '100%'}}
+                            videoContainerStyle={{
+                                width: '200px',
+                                height: '200px',
+                            }}
                             scanDelay={500}
                         />
                     </>
-                    : <div className={s.cameraBlock}/>
+                    // : ''   // <div className={s.cameraBlock}/>
             }
 
             {
@@ -57,7 +64,6 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
                     ? <span className={s.qrcodeText} onClick={downloadFile}>{data}</span>
                     : <span className={s.errorText}>Need to scan QR-code</span>
             }
-
 
             {
                 !qrCodeView
