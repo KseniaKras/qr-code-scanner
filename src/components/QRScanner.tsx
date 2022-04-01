@@ -61,7 +61,8 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
 
             {
                 !error
-                    ? <span className={s.qrcodeText} onClick={downloadFile}>{data}</span>
+                    // ? <span className={s.qrcodeText} onClick={downloadFile}>{data}</span>
+                    ? <a className={s.qrcodeText} href={`${data}`}>{data}</a>
                     : <span className={s.errorText}>Need to scan QR-code</span>
             }
 
