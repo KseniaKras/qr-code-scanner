@@ -41,18 +41,20 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
                                 if (!!result) {
                                     setData(result?.getText());
                                     addToItemsList(result?.getText())
-                                    setQRCodeView(false)
+                                    //setQRCodeView(false)
                                 }
                                 if (!!error) {
                                     console.info(error);
                                     // setQrCodeView(false)
                                 }
                             }}
-                            containerStyle={{width: '100%'}}
+                            containerStyle={{width: '100%', height: '100%'}}
                             videoContainerStyle={{
-                                width: '200px',
-                                height: '200px',
+                                width: '300px',
+                                height: '300px',
+                                padding: '0px'
                             }}
+                            videoStyle={{width: '100%', height: '100%'}}
                             scanDelay={500}
                         />
                     </>

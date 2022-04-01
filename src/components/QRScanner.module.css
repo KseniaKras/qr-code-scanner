@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
     /*min-height: 100vh;*/
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
 }
 
 /*.scannerTitle {*/
@@ -19,24 +20,24 @@
 /*    border: 2px solid midnightblue;*/
 /*}*/
 
-.textareaBlock {
-    width: 200px;
-    height: 60px;
-    margin: 30px 0px;
-    padding: 5px;
-    border: 2px solid midnightblue;
-}
+/*.textareaBlock {*/
+/*    width: 200px;*/
+/*    height: 60px;*/
+/*    margin: 30px 0px;*/
+/*    padding: 5px;*/
+/*    border: 2px solid midnightblue;*/
+/*}*/
 
 .qrcodeText {
     color: white;
     display: inline-block;
-    margin: 20px;
+    /*margin: 20px;*/
 }
 
 .errorText {
     color: red;
     display: inline-block;
-    margin: 20px;
+    /*margin: 20px;*/
 }
 
 /*.viewFinder {*/
