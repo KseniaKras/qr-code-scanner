@@ -49,7 +49,6 @@ export const QrScannerContainer: React.FC<QrScannerContainerPropsType> = ({addTo
 
     return (
         <>
-            {/*{data && <span>{data}</span>}*/}
             {data && <Button name={'Download txt'} onPressHandler={onPressDownloadFile}/>}
             <QrScanner
                 qrCodeView={qrCodeView}

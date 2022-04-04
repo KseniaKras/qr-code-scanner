@@ -61,15 +61,12 @@ export const QrScanner: React.FC<ScannerPropsType> = ({
 
             {
                 !error
-                    // ? <span className={s.qrcodeText} onClick={downloadFile}>{data}</span>
                     ? <a className={s.qrcodeText} href={`${data}`}>{data}</a>
                     : <span className={s.errorText}>Need to scan QR-code</span>
             }
 
             {
-                !qrCodeView
-                    && <Button name={'Scan QR-code'} onPressHandler={scanQRCode}/>
-                    // : <Button name={'Download txt'} onPressHandler={downloadFile}/>
+                !qrCodeView && <Button name={'Scan QR-code'} onPressHandler={scanQRCode}/>
             }
         </div>
     );

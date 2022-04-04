@@ -20,3 +20,10 @@
     text-decoration: none;
     color: white;
 }
+
+.buttonCopy {
+    margin: 0 5px;
+    font-size: 12px;
+    padding: 3px 10px;
+
+}

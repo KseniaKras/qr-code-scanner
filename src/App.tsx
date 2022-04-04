@@ -8,7 +8,7 @@ import {Button} from "./components/common/Button";
 function App() {
 
     const [isShowingList, setIsShowingList] = useState<boolean>(false)
-    const [resultsArray, setResultsArray] = useState<string[]>(["hsdjfvbsidfvbksd"])
+    const [resultsArray, setResultsArray] = useState<string[]>(["https://www.wikipedia.org/"])
 
     let addToItemsList = (value: string) => {
         setResultsArray([...resultsArray, value])
@@ -16,10 +16,6 @@ function App() {
 
     let onPressShowResults = () => {
         setIsShowingList(!isShowingList)
-    }
-
-    let saveResultToClipboard = () => {
-
     }
 
     return (
