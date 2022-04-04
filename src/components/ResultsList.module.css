@@ -15,3 +15,8 @@
     margin: 5px;
     padding-bottom: 10px;
 }
+
+.itemLink {
+    text-decoration: none;
+    color: white;
+}

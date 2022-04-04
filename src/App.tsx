@@ -8,7 +8,7 @@ import {Button} from "./components/common/Button";
 function App() {
 
     const [isShowingList, setIsShowingList] = useState<boolean>(false)
-    const [resultsArray, setResultsArray] = useState<string[]>([])
+    const [resultsArray, setResultsArray] = useState<string[]>(["hsdjfvbsidfvbksd"])
 
     let addToItemsList = (value: string) => {
         setResultsArray([...resultsArray, value])
@@ -18,13 +18,17 @@ function App() {
         setIsShowingList(!isShowingList)
     }
 
+    let saveResultToClipboard = () => {
+
+    }
+
     return (
         <div className="App">
             <header className="header">QR-code scanner</header>
             <div className="content">
                 {
                     isShowingList
-                        ? <ResultsList results={resultsArray}/>
+                        ? <ResultsList results={resultsArray} />
                         : <QrScannerContainer addToItemsList={addToItemsList}/>
                 }
                 <Button
